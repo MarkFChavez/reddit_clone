@@ -8,6 +8,23 @@
 </head>
 <body>
 
+<% if notice %>
+  <%= notice %>
+<% end %>
+
+<% if alert %>
+  <%= alert %>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= current_user.email %>
+  <%= link_to "Create new link post", new_link_path %> 
+  <%= link_to "Create new text post", new_post_path %>
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+<% else %>
+
+<% end %>
+
 <%= yield %>
 
 </body>

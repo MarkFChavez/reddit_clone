@@ -1,0 +1,10 @@
+= form_for @link do |f|
+  %div
+    = f.label :title
+    = f.text_field :title, placeholder: "Title"
+
+  %div
+    = f.label :url
+    = f.url_field :url, placeholder: "URL"
+
+  = f.submit "Create"

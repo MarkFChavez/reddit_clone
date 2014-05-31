@@ -1,0 +1,8 @@
+one:
+  user: mark
+  resource: slow_database_test_fallacy (Link)
+
+two:
+  user: mark
+  resource: tdd_is_dead (Post)
+
