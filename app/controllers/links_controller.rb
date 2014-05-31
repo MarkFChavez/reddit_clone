@@ -4,10 +4,14 @@ class LinksController < ApplicationController
   end
 
   def create
-    link = Link.create! link_params
-    link.reddits.create! user: current_user
+    @link = Link.new link_params
+    @link.reddits.build user: current_user
 
-    redirect_to root_path
+    if @link.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   private

@@ -3,11 +3,20 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def create
-    post = Post.create! post_params
-    post.reddits.create! user: current_user
+  def show
+    @post = Post.find params[:id]
+    @comment = Comment.new
+  end
 
-    redirect_to root_path
+  def create
+    @post = Post.new post_params
+    @post.reddits.build user: current_user
+
+    if @post.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   private

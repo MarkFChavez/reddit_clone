@@ -1,4 +1,9 @@
 = form_for @link do |f|
+  - unless @link.errors.empty?
+    %ul
+      - @link.errors.full_messages.each do |e|
+        %li= e
+
   %div
     = f.label :title
     = f.text_field :title, placeholder: "Title"
