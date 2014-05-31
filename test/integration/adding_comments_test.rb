@@ -27,8 +27,11 @@ feature 'Adding comments' do
           fill_in 'comment_content', with: 'Awesome'
           click_on 'Create'
         end
-
-        page.must_have_content 'Awesome'
+        
+        within '#comments' do
+          page.must_have_content 'Awesome'
+          page.must_have_content mark.email 
+        end
       end
     end
   end
