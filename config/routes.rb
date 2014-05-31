@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   root "home#index"
 
   resources :links, only: [:new, :create]
-  resources :posts, only: [:new, :show, :create]
+  resources :posts, only: [:new, :show, :create] do
+    resources :comments, only: [:create]
+  end
 end

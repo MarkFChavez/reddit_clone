@@ -4,5 +4,11 @@
 .description
   = @post.description
 
-= form_for @comment do |f|
+#comments
+  = render @post.comments
+
+= form_for [@post, @comment] do |f|
   %div
+    = f.text_area :content, placeholder: "comment here..."
+
+  = f.submit "Create"
