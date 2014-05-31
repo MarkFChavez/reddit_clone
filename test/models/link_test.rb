@@ -1,13 +1,8 @@
 require "test_helper"
 
 class LinkTest < ActiveSupport::TestCase
-
-  def link
-    @link ||= Link.new
+  def test_has_many_reddits
+    link = links(:slow_database_test_fallacy)
+    assert_respond_to link, :reddits
   end
-
-  def test_valid
-    assert link.valid?
-  end
-
 end
