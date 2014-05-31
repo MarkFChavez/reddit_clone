@@ -4,9 +4,12 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build comment_params
     @comment.commentable = @commentable
-    @comment.save!
-
-    redirect_to @commentable
+    
+    if @comment.save
+      redirect_to @commentable
+    else
+      redirect_to @commentable, alert: @comment.errors.full_messages
+    end
   end
 
   private

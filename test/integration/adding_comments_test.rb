@@ -34,5 +34,16 @@ feature 'Adding comments' do
         end
       end
     end
+
+    describe 'invalid comment' do
+      it 'returns an error message' do
+        within '#new_comment' do
+          fill_in 'comment_content', with: ''
+          click_on 'Create'
+        end
+
+        page.must_have_content "Comment can't be blank"
+      end
+    end
   end
 end
