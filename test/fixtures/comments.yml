@@ -1,0 +1,10 @@
+
+one:
+  content: Comment on tdd
+  commentable: tdd_is_dead (Post)
+  user: mark
+
+two:
+  content: Fallacy!
+  commentable: slow_database_test_fallacy (Link)
+  user: mark
